@@ -41,55 +41,38 @@
 
 </head>
 <body>
-    <?php
-    $server = 'localhost';
-    $username ='root';
-    $password = '';
-    $database = 'contactinfo';
-
-    $conn = mysqli_connect($server, $username ,$password , $database);
-
-    if(!$conn){
-      echo 'failed';
-    }else{
-     // echo 'connected';
-    }
-    
-    ?>
-
-
-
+   
 
 <div class="container mt-5">
     <h2>Create an Announcement</h2>
 
-    <form action="add.php"> 
+    <form action="add.php" method="post"> 
       <div class="mb-3">
         <label for="firstname" class="form-label">Firstname</label>
-        <input type="text" class="form-control" id="Firstname" required>
+        <input type="text" class="form-control" name="firstname" required>
       </div>
       <div class="mb-3">
         <label for="lastname" class="form-label">Lastname</label>
-        <input type="text" class="form-control" id="Lastname" required>
+        <input type="text" class="form-control" name="lastname" required>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input class="form-control" id="email" type="email" required></input>
+        <input class="form-control" name="email" type="email" required></input>
       </div>
       <div class="mb-3">
-        <label for="pwd" class="form-label">Password</label>
-        <input class="form-control" id="pwd" type="password" required></input>
+        <label for="password" class="form-label">Password</label>
+        <input class="form-control" name="pwd" type="password" required></input>
       </div>
       <div class="mb-3">
         <label for="category" class="form-label">Category</label>
-        <select class="form-select" id="category" required>
+        <select class="form-select" name="category" required>
           <option value="" disabled selected>Select a category</option>
           <option value="announcement">Electronique</option>
           <option value="event">Logement</option>
           <option value="sale">Voiture</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" name="submit">Submit</button>
     </form>
 
 </div>
@@ -98,11 +81,3 @@
 </body>
 </html>
 
-<!-- CREATE TABLE IF NOT EXISTS Users (
-    UserID INT AUTO_INCREMENT PRIMARY KEY,
-    FirstName VARCHAR(50) NOT NULL,
-    LastName VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) UNIQUE NOT NULL,
-    Password VARCHAR(255) NOT NULL,
-    CategoryOfAnnouncement VARCHAR(50) NOT NULL
-); -->
