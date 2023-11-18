@@ -12,8 +12,19 @@
         margin:0;
         padding: 0;
         outline: 0;
-        
         }
+       .title{
+        background-color: #ba68c8;
+        height: 100px;
+       }
+       .title h1{
+        display: flex;
+        justify-content: center;
+        padding-top: 1em;
+        color: #fafafa ;
+        letter-spacing: 7px;
+        font-family: 'Montserrat', sans-serif;
+       }
         .filter{
         position: absolute;
         left: 0;
@@ -45,9 +56,13 @@
         td , th{
         padding: 15px 20px;
         text-align: center;
-        
 
         }
+
+        .btn{
+            background-color: rgba(117, 117, 244, 0.342);
+        }
+
         th{
         background-color: #ba68c8;
         color: #fafafa;
@@ -67,8 +82,8 @@
     </style>
 </head>
 <body>
+   <div class="title"><h1>Announcement</h1></div> 
 <table>
- 
 <thead>
     <tr>
       <th scope="col">#</th>
@@ -80,7 +95,7 @@
     <?php
            require "connection.php";
            $sql = "SELECT * FROM contact";
-           $result = $conn->query($sql); //tatmchi l dataabse o tat execute sql
+           $result = $conn->query($sql); 
            if($result->num_rows > 0){
                while($row = $result->fetch_assoc()){
            ?>
@@ -90,7 +105,7 @@
       <th scope="row"><?php  echo $row['id'] ?></th>
       <td><?php  echo $row['firstname'] ?></td>
       <td><?php  echo $row['lastname'] ?></td>
-      <td><?php  echo $row['email'] ?></td>
+      <td class="btn"><?php  echo $row['email'] ?></td>
       <td><?php  echo $row['catégorie'] ?></td>
     </tr>
   </tbody>
