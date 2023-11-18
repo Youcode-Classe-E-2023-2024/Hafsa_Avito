@@ -21,8 +21,6 @@ Le schéma de la base de données est organisé en plusieurs tables interconnect
     $pwd = $_POST['pwd'];
     $category = $_POST['category'];
 
-
-####Comment Contribuer
 ## Comment Contribuer
 
 Nous accueillons les contributions de la communauté pour améliorer cette base de données. Voici comment vous pouvez contribuer :
