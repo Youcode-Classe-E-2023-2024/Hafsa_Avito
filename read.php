@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>read page</title>
 
+<!-- le tableau qui affiche les info -->
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
         *{
@@ -83,36 +84,38 @@
 </head>
 <body>
    <div class="title"><h1>Announcement</h1></div> 
-<table>
-<thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">firstname</th>
-      <th scope="col">lastname</th>
-      <th scope="col">email</th>
-      <th scope="col">categorie</th> 
-    </tr>
-    <?php
-           require "connection.php";
-           $sql = "SELECT * FROM contact";
-           $result = $conn->query($sql); 
-           if($result->num_rows > 0){
-               while($row = $result->fetch_assoc()){
-           ?>
-  <tbody>
 
-    <tr>
-      <th scope="row"><?php  echo $row['id'] ?></th>
-      <td><?php  echo $row['firstname'] ?></td>
-      <td><?php  echo $row['lastname'] ?></td>
-      <td class="btn"><?php  echo $row['email'] ?></td>
-      <td><?php  echo $row['catégorie'] ?></td>
-    </tr>
-  </tbody>
-  <?php }
-           }
-           ?>
- 
- </table>
+   <!-- creating the table to insert the info -->
+<table>
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">firstname</th>
+        <th scope="col">lastname</th>
+        <th scope="col">email</th>
+        <th scope="col">categorie</th> 
+        </tr>
+        <?php
+            require "connection.php"; 
+            $sql = "SELECT * FROM contact";//It constructs an SQL query to select all columns (*) from the 'contact' table.
+            $result = $conn->query($sql); //It executes the SQL query using the query method on the database connection ($conn). 
+            if($result->num_rows > 0){ //It checks if there are rows in the result set. If there , it enters a while loop to iterate through each row
+                while($row = $result->fetch_assoc()){ //The fetch_assoc method retrieves the current row as an associative array,
+            ?>
+
+        <tbody>
+            <tr>
+            <th scope="row"><?php  echo $row['id'] ?></th>
+            <td><?php  echo $row['firstname'] ?></td>
+            <td><?php  echo $row['lastname'] ?></td>
+            <td class="btn"><?php  echo $row['email'] ?></td>
+            <td><?php  echo $row['catégorie'] ?></td>
+            </tr>
+        </tbody>
+        <?php }
+            }
+            ?>
+    
+</table>
 </body>
 </html>
